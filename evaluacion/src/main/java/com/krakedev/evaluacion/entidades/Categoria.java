@@ -6,7 +6,7 @@ public class Categoria {
 	
 	@Override
 	public String toString() {
-		return "Categoria [id=" + id + ", nombre=" + nombre + "]";
+		return "Categoria [id=" + id + "]";
 	}
 	public Categoria() {}
 	public Categoria(String id, String nombre) {

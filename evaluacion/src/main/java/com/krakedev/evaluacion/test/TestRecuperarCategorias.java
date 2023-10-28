@@ -11,7 +11,10 @@ public class TestRecuperarCategorias {
 	public static void main(String[] args) {
 		try {
 			ArrayList<Categoria> categorias = ServiciosCategoria.recuperarTodos() ;
-			System.out.println(categorias);
+			
+				System.out.println(categorias);
+			
+			
 		} catch (KrakedepException e) {
 			System.out.println(e.getMessage());
 		}

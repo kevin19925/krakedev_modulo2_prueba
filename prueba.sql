@@ -23,7 +23,8 @@ references categorias(id);
 alter table productos
 add column activo boolean ;
 
-select * from productos 
+--select * from productos 
+select * from historial_movimientos
 
 create table historial_movimientos(
 	id serial not null,
@@ -65,3 +66,6 @@ values('P0001',5,'28/10/2020 12:23');
 select * from productos;
 select * from categorias;
 select * from historial_movimientos;
+
+
+UPDATE productos  set activo = true where activo is null;

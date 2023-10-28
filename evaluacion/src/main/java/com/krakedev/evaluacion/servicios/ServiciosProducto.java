@@ -132,7 +132,7 @@ public class ServiciosProducto {
 		try {
 			//abrir la conexion
 			con = ConexionBDD.conectar();
-			ps = con.prepareStatement("select * from categorias where activo=true");
+			ps = con.prepareStatement("select * from productos where activo=true");
 			
 			rs = ps.executeQuery();
 			
@@ -140,16 +140,17 @@ public class ServiciosProducto {
 				Producto c = new Producto();
 				c.setId(rs.getString("id"));
 				c.setNombre(rs.getString("nombre"));
-				c.setPrecio_venta(rs.getBigDecimal("precio_venta"));
-				c.setPrecio_compra(rs.getBigDecimal("precio_compra"));
+				//c.setPrecio_venta(rs.getBigDecimal("precio_venta"));
+				//c.setPrecio_compra(rs.getBigDecimal("precio_compra"));
 				Categoria cat= new Categoria(rs.getString("id_categoria"), "");
 				c.setId_categoria(cat);
+				c.setActivo(true);
 				productos.add(c);
 			}
 		}catch( KrakedepException e){
 			throw  e;
 		}catch( Exception e){
-			LOGGER.error("Error al recuperar categorias",e);
+			LOGGER.error("Error al recuperar Productos",e);
 			throw  new KrakedepException("Error al recuperar categorias");
 		}finally {
 			//cerrar la conexion
