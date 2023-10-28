@@ -18,7 +18,7 @@ public class TestInsertarMovimiento {
 			fechaIngreso = Convertidor.convertirFechaCompleta("22-01-2000 21:23:54");
 			fechaEgreso = Convertidor.convertirFechaCompleta("28-01-2000 21:23:20");
 			System.out.println(fechaIngreso);
-			ServicioMovimientos.registrarMovimiento(TipoMovimientos.INGRESO ,100, fechaIngreso, p); 
+			ServicioMov imientos.registrarMovimiento(TipoMovimientos.INGRESO ,100, fechaIngreso, p); 
 			ServicioMovimientos.registrarMovimiento(TipoMovimientos.SALIDA ,20, fechaEgreso, p); 
 		} catch (KrakedepException e) {
 			System.out.println("error en el sistema: "+e.getMessage());

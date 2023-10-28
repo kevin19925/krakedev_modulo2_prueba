@@ -1,11 +1,6 @@
 package com.krakedev.evaluacion.test;
 
-import java.math.BigDecimal;
-
-import com.krakedev.evaluacion.entidades.Categoria;
-import com.krakedev.evaluacion.entidades.Producto;
 import com.krakedev.evaluacion.excepciones.KrakedepException;
-import com.krakedev.evaluacion.servicios.ServiciosCategoria;
 import com.krakedev.evaluacion.servicios.ServiciosProducto;
 
 public class TestEliminarProducto {

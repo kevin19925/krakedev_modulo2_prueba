@@ -140,7 +140,7 @@ public class ServiciosProducto {
 				Producto c = new Producto();
 				c.setId(rs.getString("id"));
 				c.setNombre(rs.getString("nombre"));
-				//c.setPrecio_venta(rs.getBigDecimal("precio_venta"));
+			//	c.setPrecio_venta(new BigDecimal getBigDecimal("precio_venta"));
 				//c.setPrecio_compra(rs.getBigDecimal("precio_compra"));
 				Categoria cat= new Categoria(rs.getString("id_categoria"), "");
 				c.setId_categoria(cat);
