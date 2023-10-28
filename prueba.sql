@@ -20,6 +20,11 @@ add constraint productos_categorias_fk
 foreign key (id_categoria)
 references categorias(id);
 
+alter table productos
+add column activo boolean ;
+
+select * from productos 
+
 create table historial_movimientos(
 	id serial not null,
 	id_producto char(5) not null,

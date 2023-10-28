@@ -11,9 +11,9 @@ import com.krakedev.evaluacion.excepciones.KrakedepException;
 
 public class ConexionBDD {
 	private final static String DRIVER = "org.postgresql.Driver";
-	private final static String URL = "jdbc:postgresql://localhost:5432/Prueba";
+	private final static String URL = "jdbc:postgresql://localhost:5432/prueba";
 	private final static String USUARIO = "postgres";
-	private final static String CLAVE = "riki742273605";
+	private final static String CLAVE = "postgres";
 	private static final Logger LOGGER = LogManager.getLogger(ConexionBDD.class);
 
 	public static Connection conectar() throws KrakedepException {

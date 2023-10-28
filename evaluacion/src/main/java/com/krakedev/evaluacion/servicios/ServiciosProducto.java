@@ -14,8 +14,8 @@ import com.krakedev.evaluacion.entidades.Producto;
 import com.krakedev.evaluacion.excepciones.KrakedepException;
 import com.krakedev.evaluacion.utils.ConexionBDD;
 
-public class ServiciosCategoria {
-	private static final Logger LOGGER = LogManager.getLogger(ServiciosCategoria.class);
+public class ServiciosProducto {
+	private static final Logger LOGGER = LogManager.getLogger(ServiciosProducto.class);
 
 	public static ArrayList<Categoria> recuperarTodos() throws KrakedepException {
 		ArrayList<Categoria> categorias = new ArrayList<Categoria>() ;
@@ -87,47 +87,22 @@ public class ServiciosCategoria {
 		}
 		return c;
 	}
-	public static  void actualizar(Categoria categoria) throws KrakedepException {
-		Connection con = null;
-		PreparedStatement ps;
-		LOGGER.trace("Categoria a actualizar>>>> "+categoria);
-		try {
-			//abrir la conexion
-			con = ConexionBDD.conectar();
-			ps = con.prepareStatement("update categorias set nombre = ? where id = ?");
-			
-			ps.setString(1, categoria.getNombre());
-			ps.setString(2, categoria.getId());
-			
-			ps.executeUpdate();
-		}catch( KrakedepException e){
-			throw  e;
-		}catch( Exception e){
-			LOGGER.error("Error al actualizar",e);
-			throw  new KrakedepException("Error al actualizar");
-		}finally {
-			//cerrar la conexion
-			try {
-				con.close();
-			} catch (SQLException e) {
-				LOGGER.error("Error con la base de datos",e);
-				throw new KrakedepException("Error con la base de datos");
-			}
-		}
-		
-	}
-	public static  void insertar(Categoria categoria) throws KrakedepException {
-		Connection con = null;
-		PreparedStatement ps;
-		LOGGER.trace("Categoria a insertar>>>> "+categoria);
-		try {
-			//abrir la conexion
-			con = ConexionBDD.conectar();
-			ps = con.prepareStatement("insert into categorias(id,nombre)"
-					+ "values(?,?)");
-			ps.setString(1, categoria.getId());
-			ps.setString(2, categoria.getNombre());
 
+	public static  void insertar(Producto p) throws KrakedepException {
+		Connection con = null;
+		PreparedStatement ps;
+		LOGGER.trace("Categoria a insertar>>>> "+p);
+		try {
+			//abrir la conexion
+			con = ConexionBDD.conectar();
+			ps = con.prepareStatement("insert into productos (id,nombre,precio_venta,precio_compra,id_categoria)"
+					+ "values(?,?,?,?,?)");
+			ps.setString(1, p.getId());
+			ps.setString(2, p.getNombre());
+			ps.setBigDecimal(3, p.getPrecio_venta());
+			ps.setBigDecimal(4, p.getPrecio_compra());
+			ps.setString(5, p.getId_categoria().getId());
+			
 			ps.executeUpdate();
 		}catch( KrakedepException e){
 			throw  e;
@@ -145,4 +120,5 @@ public class ServiciosCategoria {
 		}
 		
 	}
+	
 }
