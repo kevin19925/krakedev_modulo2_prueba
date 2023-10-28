@@ -8,12 +8,9 @@ public class Producto {
 	private BigDecimal precio_venta;
 	private BigDecimal precio_compra;
 	private Categoria id_categoria;
+	private boolean activo;
 	
-	@Override
-	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", precio_venta=" + precio_venta + ", precio_compra="
-				+ precio_compra + ", id_categoria=" + id_categoria + "]";
-	}
+	
 	public Producto() {}
 	public Producto(String id, String nombre, BigDecimal precio_venta, BigDecimal precio_compra,
 			Categoria id_categoria) {
@@ -23,7 +20,9 @@ public class Producto {
 		this.precio_venta = precio_venta;
 		this.precio_compra = precio_compra;
 		this.id_categoria = id_categoria;
+		this.activo=true;
 	}
+	
 	public String getId() {
 		return id;
 	}
@@ -54,5 +53,13 @@ public class Producto {
 	public void setId_categoria(Categoria id_categoria) {
 		this.id_categoria = id_categoria;
 	}
+	public boolean isActivo() {
+		return activo;
+	}
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+	
+
 	
 }

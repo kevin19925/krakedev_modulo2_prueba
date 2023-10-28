@@ -8,15 +8,14 @@ import com.krakedev.evaluacion.excepciones.KrakedepException;
 import com.krakedev.evaluacion.servicios.ServiciosCategoria;
 import com.krakedev.evaluacion.servicios.ServiciosProducto;
 
-public class TestInsertarProducto {
+public class TestEliminarProducto {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Categoria c = new Categoria("C001","Frutas");
 		
 		try {
 			//ServiciosCategoria.insertar(c);
-			ServiciosProducto.insertar(new Producto("P0008","ppp", new BigDecimal(20), new BigDecimal(20),  c));
+			ServiciosProducto.Eliminar(  "P0008");
 		} catch (KrakedepException e) {
 			System.out.println("error en el sistema: "+e.getMessage());
 		}
