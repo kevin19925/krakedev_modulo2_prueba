@@ -1,5 +1,4 @@
 package com.krakedev.evaluacion.test;
-
 import java.math.BigDecimal;
 
 import com.krakedev.evaluacion.entidades.Categoria;
@@ -7,16 +6,14 @@ import com.krakedev.evaluacion.entidades.Producto;
 import com.krakedev.evaluacion.excepciones.KrakedepException;
 import com.krakedev.evaluacion.servicios.ServiciosCategoria;
 import com.krakedev.evaluacion.servicios.ServiciosProducto;
-
-public class TestInsertarProducto {
+public class TestActualizarProducto {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Categoria c = new Categoria("C001","Frutas");
-		
+		Categoria cat =new Categoria("C003","Cereales");
+		Producto c = new Producto("P0005", "Avena", new BigDecimal(1230.45), new BigDecimal(1230.45) ,cat);
 		try {
-			//ServiciosCategoria.insertar(c);
-			ServiciosProducto.insertar(new Producto("P0006","ppp", new BigDecimal(20), new BigDecimal(20),  c));
+			ServiciosProducto.actualizar(c);
 		} catch (KrakedepException e) {
 			System.out.println("error en el sistema: "+e.getMessage());
 		}

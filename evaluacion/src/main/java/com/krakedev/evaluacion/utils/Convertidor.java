@@ -13,6 +13,7 @@ public class Convertidor {
 	private static final String FORMATO_FECHA = "yyyy/MM/dd";
 	private static final String FORMATO_HORA = "hh:mm";
 	private static final Logger LOGGER = LogManager.getLogger(ConexionBDD.class);
+	private static final String FORMATO_FECHA_COMPLETA = "dd-MM-yyyy hh:mm:ss";
 	
 	public static Date convertirFecha(String fechaStr) throws KrakedepException {
 		SimpleDateFormat sdf = new SimpleDateFormat(FORMATO_FECHA);
@@ -37,5 +38,17 @@ public class Convertidor {
 			throw new KrakedepException("La hora no tiene el formato correcto"+horaStr);
 		}
 		return horaDate;
+	}
+	
+	public static Date convertirFechaCompleta(String fechaComStr) throws KrakedepException {
+		SimpleDateFormat sdf = new SimpleDateFormat(FORMATO_FECHA_COMPLETA);
+		Date fechaDate = null;
+		try {
+			fechaDate = sdf.parse(fechaComStr);
+		} catch (ParseException e) {
+			LOGGER.error("La fecha no tiene el formato correcto "+fechaComStr,e);
+			throw new KrakedepException("La fecha no tiene el formato correcto"+fechaComStr);
+		}
+		return fechaDate;
 	}
 }
